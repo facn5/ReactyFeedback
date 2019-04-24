@@ -1,0 +1,23 @@
+.icon {
+  text-align: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  outline: none;
+  user-select: none;
+  -webkit-user-drag:none;
+}
+
+.icon img {
+  height: 150px;
+  width: 150px;
+  cursor: pointer;
+  transition: opacity 1s ease;
+  outline: none;
+  user-select: none;
+  -webkit-user-drag:none;
+}
+
+.icon img:hover {
+  opacity: 0.85;
+}
