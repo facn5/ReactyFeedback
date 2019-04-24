@@ -3,9 +3,10 @@ import './Icon.css'
 
 export default class Icon extends React.Component {
   render() {
+    const { imgSrc } = this.props;
     return (
       <div className="icon">
-      <img src="https://www.petconnectrescue.org/wp-content/uploads/2016/10/FB-icon.png" />
+      <img src={imgSrc} />
       </div>
   );
   }
