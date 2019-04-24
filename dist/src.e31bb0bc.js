@@ -25868,7 +25868,57 @@ function (_React$Component) {
     value: function render() {
       return _react.default.createElement("div", {
         className: "site--header"
-      }, _react.default.createElement("h1", null, "My sexy header"));
+      }, _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("span", {
+        class: "tr"
+      }), _react.default.createElement("h1", null, "Reacty Feedback"));
     }
   }]);
 
@@ -26252,10 +26302,11 @@ function (_React$Component) {
   _createClass(Icon, [{
     key: "render",
     value: function render() {
+      var imgSrc = this.props.imgSrc;
       return _react.default.createElement("div", {
         className: "icon"
       }, _react.default.createElement("img", {
-        src: "https://www.petconnectrescue.org/wp-content/uploads/2016/10/FB-icon.png"
+        src: imgSrc
       }));
     }
   }]);
@@ -26310,13 +26361,28 @@ function (_React$Component) {
   _createClass(Icons, [{
     key: "render",
     value: function render() {
-      var display = this.props.display;
+      var _this$props = this.props,
+          display = _this$props.display,
+          categoryData = _this$props.categoryData,
+          chosenCat = _this$props.chosenCat;
+      var currentCategory = "";
+      if (chosenCat == "Social Medias") currentCategory = "SocialMedia";else if (chosenCat == "News") currentCategory = "News";else if (chosenCat == "Search Engines") currentCategory = "SearchEngines";else currentCategory = "Static";
+      var iconsArray = [];
+      if (categoryData[currentCategory]) iconsArray = categoryData[currentCategory].icons;
       return _react.default.createElement("div", {
         className: "icons--container",
         style: {
           display: display
         }
-      }, _react.default.createElement(_Icon.default, null), _react.default.createElement(_Icon.default, null), _react.default.createElement(_Icon.default, null), _react.default.createElement(_Icon.default, null));
+      }, iconsArray != undefined && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Icon.default, {
+        imgSrc: iconsArray[0]
+      }), _react.default.createElement(_Icon.default, {
+        imgSrc: iconsArray[1]
+      }), _react.default.createElement(_Icon.default, {
+        imgSrc: iconsArray[2]
+      }), _react.default.createElement(_Icon.default, {
+        imgSrc: iconsArray[3]
+      })));
     }
   }]);
 
@@ -26324,7 +26390,73 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = Icons;
-},{"react":"../node_modules/react/index.js","../Icon/Icon":"components/Icon/Icon.js"}],"components/App.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../Icon/Icon":"components/Icon/Icon.js"}],"components/Data/Data.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Data/Data.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Data.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Data =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Data, _React$Component);
+
+  function Data() {
+    _classCallCheck(this, Data);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Data).apply(this, arguments));
+  }
+
+  _createClass(Data, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          categoryData = _this$props.categoryData,
+          chosenCat = _this$props.chosenCat;
+      var currentCategory = "";
+      if (chosenCat == "Social Medias") currentCategory = "SocialMedia";else if (chosenCat == "News") currentCategory = "News";else if (chosenCat == "Search Engines") currentCategory = "SearchEngines";else currentCategory = "Static";
+      return _react.default.createElement("div", {
+        className: "data--container"
+      }, _react.default.createElement("h3", null, categoryData[currentCategory].name), _react.default.createElement("p", null, categoryData[currentCategory].desc));
+    }
+  }]);
+
+  return Data;
+}(_react.default.Component);
+
+exports.default = Data;
+},{"react":"../node_modules/react/index.js","./Data.css":"components/Data/Data.css"}],"components/App.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -26348,6 +26480,8 @@ var _InputFeed = _interopRequireDefault(require("./InputFeed/InputFeed"));
 var _Rating = _interopRequireDefault(require("./Rating/Rating"));
 
 var _Icons = _interopRequireDefault(require("./Icons/Icons"));
+
+var _Data = _interopRequireDefault(require("./Data/Data"));
 
 require("./App.css");
 
@@ -26394,16 +26528,27 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "state", {
       chosenCat: "",
       toggle: "none",
-      iconData: [{
-        name: "Social Media",
-        desc: "Social media are interactive computer-mediated technologies that facilitate the creation and sharing of information, ideas, career interests and other forms of expression via virtual communities and networks."
-      }, {
-        name: "Search Engines",
-        desc: "A web search engine or Internet search engine is a software system that is designed to carry out web search (Internet search), which means to search the World Wide Web in a systematic way for particular information specified in a web search query."
-      }, {
-        name: "News",
-        desc: "News is information about current events. This may be provided through many different media: word of mouth, printing, postal systems, broadcasting, electronic communication, or through the testimony of observers and witnesses to events."
-      }]
+      categoryData: {
+        SocialMedia: {
+          name: "Social Media",
+          desc: "Social media are interactive computer-mediated technologies that facilitate the creation and sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.",
+          icons: ["https://www.petconnectrescue.org/wp-content/uploads/2016/10/FB-icon.png", "https://cdn.prdaily.com/wp-content/uploads/2019/01/Instagram_LendEDU_Survey.jpg", "http://clipart-library.com/img/697347.png", "https://abilitynet.org.uk/sites/abilitynet.org.uk/files/admin/alltwitter-twitter-bird-logo-white-on-blue.png"]
+        },
+        SearchEngines: {
+          name: "Search Engines",
+          desc: "A web search engine or Internet search engine is a software system that is designed to carry out web search (Internet search), which means to search the World Wide Web in a systematic way for particular information specified in a web search query.",
+          icons: ["https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Bing_logo.svg/1280px-Bing_logo.svg.png", "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/DuckDuckGo_logo.svg/1200px-DuckDuckGo_logo.svg.png", "http://wiki.com/wikilogo.jpg"]
+        },
+        News: {
+          name: "News",
+          desc: "News is information about current events. This may be provided through many different media: word of mouth, printing, postal systems, broadcasting, electronic communication, or through the testimony of observers and witnesses to events.",
+          icons: ["https://minerva.co.il/wp-content/uploads/2017/12/F150204MA9211-1024x694.jpg", "https://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1", "https://www.logodesignlove.com/wp-content/uploads/2010/06/cnn-logo-white-on-red.jpg", "https://www.livenewsmag.com/wp-content/uploads/2017/01/Al-Manar-TV.jpg"]
+        },
+        Static: {
+          name: "Who are we?",
+          desc: "We are a few people of programmers who wanted to know how people feel about the big platforms, and hear from them their reviews and feebacks."
+        }
+      }
     });
 
     return _this;
@@ -26421,13 +26566,18 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var _this$state = this.state,
-          iconData = _this$state.iconData,
+          categoryData = _this$state.categoryData,
           toggle = _this$state.toggle,
           chosenCat = _this$state.chosenCat;
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_CateButtons.default, {
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_Data.default, {
+        categoryData: categoryData,
+        chosenCat: chosenCat
+      }), _react.default.createElement(_CateButtons.default, {
         chosenCategory: chosenCat,
         displayIconsAndGetChosenCat: this.setToggleState.bind(this)
       }), _react.default.createElement(_InputFeed.default, null), _react.default.createElement(_Rating.default, null), _react.default.createElement(_Icons.default, {
+        chosenCat: chosenCat,
+        categoryData: categoryData,
         display: toggle
       }));
     }
@@ -26437,7 +26587,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = App;
-},{"react":"../node_modules/react/index.js","./Header/Header":"components/Header/Header.js","./CateButtons/CateButtons":"components/CateButtons/CateButtons.js","./InputFeed/InputFeed":"components/InputFeed/InputFeed.js","./Rating/Rating":"components/Rating/Rating.js","./Icons/Icons":"components/Icons/Icons.js","./App.css":"components/App.css"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Header/Header":"components/Header/Header.js","./CateButtons/CateButtons":"components/CateButtons/CateButtons.js","./InputFeed/InputFeed":"components/InputFeed/InputFeed.js","./Rating/Rating":"components/Rating/Rating.js","./Icons/Icons":"components/Icons/Icons.js","./Data/Data":"components/Data/Data.js","./App.css":"components/App.css"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -26477,7 +26627,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37591" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39711" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
