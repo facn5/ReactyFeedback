@@ -25748,7 +25748,79 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"components/Header/Header.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"components/Header/Header.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Header/Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25757,6 +25829,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+require("./Header.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25792,7 +25866,9 @@ function (_React$Component) {
   _createClass(Header, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("h1", null, "My sexy header");
+      return _react.default.createElement("div", {
+        className: "site--header"
+      }, _react.default.createElement("h1", null, "My sexy header"));
     }
   }]);
 
@@ -25800,7 +25876,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = Header;
-},{"react":"../node_modules/react/index.js"}],"components/CateButtons/CateButtons.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Header.css":"components/Header/Header.css"}],"components/CateButton/CateButton.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25822,13 +25898,106 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var CateButton =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CateButton, _React$Component);
+
+  function CateButton() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, CateButton);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CateButton)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "buttonClick", function () {
+      _this.props.displayIconsAndGetChosenCat("grid", _this.props.name);
+
+      _this.props.resetColorFunc();
+
+      setTimeout(function () {
+        _this.props.resetColorFunc();
+      }, 0);
+    });
+
+    return _this;
+  }
+
+  _createClass(CateButton, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          name = _this$props.name,
+          display = _this$props.display;
+      return _react.default.createElement("button", {
+        style: {
+          background: display
+        },
+        onClick: this.buttonClick
+      }, name);
+    }
+  }]);
+
+  return CateButton;
+}(_react.default.Component);
+
+exports.default = CateButton;
+},{"react":"../node_modules/react/index.js"}],"components/CateButtons/CateButtons.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/CateButtons/CateButtons.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _CateButton = _interopRequireDefault(require("../CateButton/CateButton"));
+
+require("./CateButtons.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var CateButtons =
 /*#__PURE__*/
@@ -25836,15 +26005,85 @@ function (_React$Component) {
   _inherits(CateButtons, _React$Component);
 
   function CateButtons() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, CateButtons);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(CateButtons).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(CateButtons)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      socialMediaBg: "white",
+      newsBg: "white",
+      searchEngineBg: "white"
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "resetOtherButtonsBgColor", function () {
+      if (_this.props.chosenCategory) {
+        if (_this.props.chosenCategory == "Social Medias") {
+          _this.setState({
+            newsBg: "white",
+            searchEngineBg: "white",
+            socialMediaBg: "green"
+          });
+        } else if (_this.props.chosenCategory == "News") {
+          _this.setState({
+            socialMediaBg: "white",
+            searchEngineBg: "white",
+            newsBg: "green"
+          });
+        } else if (_this.props.chosenCategory == "Search Engines") {
+          _this.setState({
+            socialMediaBg: "white",
+            newsBg: "white",
+            searchEngineBg: "green"
+          });
+        } else {
+          _this.setState({
+            searchEngineBg: "white",
+            socialMediaBg: "white",
+            newsBg: "white"
+          });
+        }
+      }
+    });
+
+    return _this;
   }
 
   _createClass(CateButtons, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("button", null, "Catg");
+      var _this$props = this.props,
+          displayIconsAndGetChosenCat = _this$props.displayIconsAndGetChosenCat,
+          chosenCategory = _this$props.chosenCategory;
+      var _this$state = this.state,
+          socialMediaBg = _this$state.socialMediaBg,
+          newsBg = _this$state.newsBg,
+          searchEngineBg = _this$state.searchEngineBg;
+      return _react.default.createElement("div", {
+        className: "categories-buttons--container"
+      }, _react.default.createElement(_CateButton.default, {
+        resetColorFunc: this.resetOtherButtonsBgColor,
+        display: socialMediaBg,
+        displayIconsAndGetChosenCat: displayIconsAndGetChosenCat,
+        name: "Social Medias"
+      }), _react.default.createElement(_CateButton.default, {
+        resetColorFunc: this.resetOtherButtonsBgColor,
+        display: newsBg,
+        displayIconsAndGetChosenCat: displayIconsAndGetChosenCat,
+        name: "News"
+      }), _react.default.createElement(_CateButton.default, {
+        resetColorFunc: this.resetOtherButtonsBgColor,
+        display: searchEngineBg,
+        displayIconsAndGetChosenCat: displayIconsAndGetChosenCat,
+        name: "Search Engines"
+      }));
     }
   }]);
 
@@ -25852,7 +26091,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = CateButtons;
-},{"react":"../node_modules/react/index.js"}],"components/InputFeed/InputFeed.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../CateButton/CateButton":"components/CateButton/CateButton.js","./CateButtons.css":"components/CateButtons/CateButtons.css"}],"components/InputFeed/InputFeed.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25962,7 +26201,12 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = Rating;
-},{"react":"../node_modules/react/index.js"}],"components/Icon/Icon.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"components/Icon/Icon.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Icon/Icon.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25971,6 +26215,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+require("./Icon.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26006,9 +26252,11 @@ function (_React$Component) {
   _createClass(Icon, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("img", {
+      return _react.default.createElement("div", {
+        className: "icon"
+      }, _react.default.createElement("img", {
         src: "https://www.petconnectrescue.org/wp-content/uploads/2016/10/FB-icon.png"
-      });
+      }));
     }
   }]);
 
@@ -26016,7 +26264,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = Icon;
-},{"react":"../node_modules/react/index.js"}],"components/App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Icon.css":"components/Icon/Icon.css"}],"components/Icons/Icons.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26026,15 +26274,7 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _Header = _interopRequireDefault(require("./Header/Header"));
-
-var _CateButtons = _interopRequireDefault(require("./CateButtons/CateButtons"));
-
-var _InputFeed = _interopRequireDefault(require("./InputFeed/InputFeed"));
-
-var _Rating = _interopRequireDefault(require("./Rating/Rating"));
-
-var _Icon = _interopRequireDefault(require("./Icon/Icon"));
+var _Icon = _interopRequireDefault(require("../Icon/Icon"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26056,21 +26296,140 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+var Icons =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Icons, _React$Component);
+
+  function Icons() {
+    _classCallCheck(this, Icons);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Icons).apply(this, arguments));
+  }
+
+  _createClass(Icons, [{
+    key: "render",
+    value: function render() {
+      var display = this.props.display;
+      return _react.default.createElement("div", {
+        className: "icons--container",
+        style: {
+          display: display
+        }
+      }, _react.default.createElement(_Icon.default, null), _react.default.createElement(_Icon.default, null), _react.default.createElement(_Icon.default, null), _react.default.createElement(_Icon.default, null));
+    }
+  }]);
+
+  return Icons;
+}(_react.default.Component);
+
+exports.default = Icons;
+},{"react":"../node_modules/react/index.js","../Icon/Icon":"components/Icon/Icon.js"}],"components/App.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/App.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Header = _interopRequireDefault(require("./Header/Header"));
+
+var _CateButtons = _interopRequireDefault(require("./CateButtons/CateButtons"));
+
+var _InputFeed = _interopRequireDefault(require("./InputFeed/InputFeed"));
+
+var _Rating = _interopRequireDefault(require("./Rating/Rating"));
+
+var _Icons = _interopRequireDefault(require("./Icons/Icons"));
+
+require("./App.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var App =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(App, _React$Component);
 
   function App() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(App).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      chosenCat: "",
+      toggle: "none",
+      iconData: [{
+        name: "Social Media",
+        desc: "Social media are interactive computer-mediated technologies that facilitate the creation and sharing of information, ideas, career interests and other forms of expression via virtual communities and networks."
+      }, {
+        name: "Search Engines",
+        desc: "A web search engine or Internet search engine is a software system that is designed to carry out web search (Internet search), which means to search the World Wide Web in a systematic way for particular information specified in a web search query."
+      }, {
+        name: "News",
+        desc: "News is information about current events. This may be provided through many different media: word of mouth, printing, postal systems, broadcasting, electronic communication, or through the testimony of observers and witnesses to events."
+      }]
+    });
+
+    return _this;
   }
 
   _createClass(App, [{
+    key: "setToggleState",
+    value: function setToggleState(display, chosenCategory) {
+      this.setState({
+        toggle: display,
+        chosenCat: chosenCategory
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_CateButtons.default, null), _react.default.createElement(_InputFeed.default, null), _react.default.createElement(_Rating.default, null), _react.default.createElement(_Icon.default, null));
+      var _this$state = this.state,
+          iconData = _this$state.iconData,
+          toggle = _this$state.toggle,
+          chosenCat = _this$state.chosenCat;
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_CateButtons.default, {
+        chosenCategory: chosenCat,
+        displayIconsAndGetChosenCat: this.setToggleState.bind(this)
+      }), _react.default.createElement(_InputFeed.default, null), _react.default.createElement(_Rating.default, null), _react.default.createElement(_Icons.default, {
+        display: toggle
+      }));
     }
   }]);
 
@@ -26078,7 +26437,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = App;
-},{"react":"../node_modules/react/index.js","./Header/Header":"components/Header/Header.js","./CateButtons/CateButtons":"components/CateButtons/CateButtons.js","./InputFeed/InputFeed":"components/InputFeed/InputFeed.js","./Rating/Rating":"components/Rating/Rating.js","./Icon/Icon":"components/Icon/Icon.js"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Header/Header":"components/Header/Header.js","./CateButtons/CateButtons":"components/CateButtons/CateButtons.js","./InputFeed/InputFeed":"components/InputFeed/InputFeed.js","./Rating/Rating":"components/Rating/Rating.js","./Icons/Icons":"components/Icons/Icons.js","./App.css":"components/App.css"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -26118,7 +26477,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46449" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37591" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
