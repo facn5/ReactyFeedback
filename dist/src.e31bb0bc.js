@@ -25869,55 +25869,55 @@ function (_React$Component) {
       return _react.default.createElement("div", {
         className: "site--header"
       }, _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("span", {
-        class: "tr"
+        className: "tr"
       }), _react.default.createElement("h1", null, "Reacty Feedback"));
     }
   }]);
@@ -26627,7 +26627,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39711" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38203" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
