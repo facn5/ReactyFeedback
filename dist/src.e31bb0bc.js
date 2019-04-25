@@ -26141,7 +26141,179 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = CateButtons;
-},{"react":"../node_modules/react/index.js","../CateButton/CateButton":"components/CateButton/CateButton.js","./CateButtons.css":"components/CateButtons/CateButtons.css"}],"components/InputFeed/InputFeed.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../CateButton/CateButton":"components/CateButton/CateButton.js","./CateButtons.css":"components/CateButtons/CateButtons.css"}],"../node_modules/font-awesome/css/font-awesome.min.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./../fonts/fontawesome-webfont.eot":[["fontawesome-webfont.80db1567.eot","../node_modules/font-awesome/fonts/fontawesome-webfont.eot"],"../node_modules/font-awesome/fonts/fontawesome-webfont.eot"],"./../fonts/fontawesome-webfont.woff2":[["fontawesome-webfont.cda54bb3.woff2","../node_modules/font-awesome/fonts/fontawesome-webfont.woff2"],"../node_modules/font-awesome/fonts/fontawesome-webfont.woff2"],"./../fonts/fontawesome-webfont.woff":[["fontawesome-webfont.c3cf7ef2.woff","../node_modules/font-awesome/fonts/fontawesome-webfont.woff"],"../node_modules/font-awesome/fonts/fontawesome-webfont.woff"],"./../fonts/fontawesome-webfont.ttf":[["fontawesome-webfont.cf80d36a.ttf","../node_modules/font-awesome/fonts/fontawesome-webfont.ttf"],"../node_modules/font-awesome/fonts/fontawesome-webfont.ttf"],"./../fonts/fontawesome-webfont.svg":[["fontawesome-webfont.9ab71dbb.svg","../node_modules/font-awesome/fonts/fontawesome-webfont.svg"],"../node_modules/font-awesome/fonts/fontawesome-webfont.svg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Rating/Rating.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Rating/Rating.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("../../../node_modules/font-awesome/css/font-awesome.min.css");
+
+require("./Rating.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Rating =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Rating, _React$Component);
+
+  function Rating() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Rating);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Rating)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      compClass: ["", "", "", "", ""]
+    });
+
+    return _this;
+  }
+
+  _createClass(Rating, [{
+    key: "selectStar",
+    value: function selectStar(value) {
+      if (value == 1) {
+        this.setState({
+          compClass: ["", "", "", "", "selected"]
+        });
+      } else if (value == 2) {
+        this.setState({
+          compClass: ["", "", "", "selected", "selected"]
+        });
+      } else if (value == 3) {
+        this.setState({
+          compClass: ["", "", "selected", "selected", "selected"]
+        });
+      } else if (value == 4) {
+        this.setState({
+          compClass: ["", "selected", "selected", "selected", "selected"]
+        });
+      } else if (value == 5) {
+        this.setState({
+          compClass: ["selected", "selected", "selected", "selected", "selected"]
+        });
+      }
+    }
+  }, {
+    key: "sendRatingValueToSubmit",
+    value: function sendRatingValueToSubmit(value) {
+      if (value == 1) this.props.onChange(1);else if (value == 2) this.props.onChange(2);else if (value == 3) this.props.onChange(3);else if (value == 4) this.props.onChange(4);else if (value == 5) this.props.onChange(5);else this.props.onChange(0);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var compClass = this.state.compClass;
+      return _react.default.createElement("div", {
+        className: "stars"
+      }, _react.default.createElement("div", {
+        onClick: function onClick() {
+          _this2.selectStar(5);
+
+          _this2.sendRatingValueToSubmit(5);
+        },
+        className: compClass[0]
+      }, _react.default.createElement("input", {
+        type: "radio",
+        name: "stars",
+        value: "1"
+      })), _react.default.createElement("div", {
+        onClick: function onClick() {
+          _this2.selectStar(4);
+
+          _this2.sendRatingValueToSubmit(4);
+        },
+        className: compClass[1]
+      }, _react.default.createElement("input", {
+        type: "radio",
+        name: "stars",
+        value: "2"
+      })), _react.default.createElement("div", {
+        onClick: function onClick() {
+          _this2.selectStar(3);
+
+          _this2.sendRatingValueToSubmit(3);
+        },
+        className: compClass[2]
+      }, _react.default.createElement("input", {
+        type: "radio",
+        name: "stars",
+        value: "3"
+      })), _react.default.createElement("div", {
+        onClick: function onClick() {
+          _this2.selectStar(2);
+
+          _this2.sendRatingValueToSubmit(2);
+        },
+        className: compClass[3]
+      }, _react.default.createElement("input", {
+        type: "radio",
+        name: "stars",
+        value: "4"
+      })), _react.default.createElement("div", {
+        onClick: function onClick() {
+          _this2.selectStar(1);
+
+          _this2.sendRatingValueToSubmit(1);
+        },
+        className: compClass[4]
+      }, _react.default.createElement("input", {
+        type: "radio",
+        name: "stars",
+        value: "5"
+      })));
+    }
+  }]);
+
+  return Rating;
+}(_react.default.Component);
+
+exports.default = Rating;
+},{"react":"../node_modules/react/index.js","../../../node_modules/font-awesome/css/font-awesome.min.css":"../node_modules/font-awesome/css/font-awesome.min.css","./Rating.css":"components/Rating/Rating.css"}],"components/InputFeed/InputFeed.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26163,13 +26335,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var InputFeed =
 /*#__PURE__*/
@@ -26177,15 +26351,30 @@ function (_React$Component) {
   _inherits(InputFeed, _React$Component);
 
   function InputFeed() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, InputFeed);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(InputFeed).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(InputFeed)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "userInput", function (event) {
+      _this.props.onChange(event.target.value);
+    });
+
+    return _this;
   }
 
   _createClass(InputFeed, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("input", {
+      return _react.default.createElement("textarea", {
+        onChange: this.userInput,
         placeholder: "Add feedback"
       });
     }
@@ -26195,7 +26384,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = InputFeed;
-},{"react":"../node_modules/react/index.js"}],"components/Rating/Rating.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"components/SubmitBtn/SubmitBtn.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26217,41 +26406,185 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var Rating =
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var SubmitBtn =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Rating, _React$Component);
+  _inherits(SubmitBtn, _React$Component);
 
-  function Rating() {
-    _classCallCheck(this, Rating);
+  function SubmitBtn() {
+    var _getPrototypeOf2;
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Rating).apply(this, arguments));
+    var _this;
+
+    _classCallCheck(this, SubmitBtn);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(SubmitBtn)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "handleOnClick", function () {
+      if (_this.props.InputFeedVal && _this.props.RatingVal) {
+        localStorage.setItem(_this.props.chosenPlatform, "Msg:".concat(_this.props.InputFeedVal, "&Rate:").concat(_this.props.RatingVal));
+        setTimeout(function () {
+          _this.props.exitForm('none');
+        }, 1000);
+      } else alert("Please finish your feedback!");
+    });
+
+    return _this;
   }
 
-  _createClass(Rating, [{
+  _createClass(SubmitBtn, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("input", {
-        type: "radio",
-        name: "stars",
-        value: "1"
-      });
+      return _react.default.createElement("button", {
+        onClick: this.handleOnClick
+      }, "Submit your feedback");
     }
   }]);
 
-  return Rating;
+  return SubmitBtn;
 }(_react.default.Component);
 
-exports.default = Rating;
-},{"react":"../node_modules/react/index.js"}],"components/Icon/Icon.css":[function(require,module,exports) {
+exports.default = SubmitBtn;
+},{"react":"../node_modules/react/index.js"}],"components/FeedbackForm/FeedbackForm.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/FeedbackForm/FeedbackForm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Rating = _interopRequireDefault(require("../Rating/Rating"));
+
+var _InputFeed = _interopRequireDefault(require("../InputFeed/InputFeed"));
+
+var _SubmitBtn = _interopRequireDefault(require("../SubmitBtn/SubmitBtn"));
+
+require("./FeedbackForm.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var FeedbackForm =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(FeedbackForm, _React$Component);
+
+  function FeedbackForm() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, FeedbackForm);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(FeedbackForm)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      inputFeedValue: "",
+      ratingValue: 0
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "inputFeedValChange", function (value) {
+      _this.setState({
+        inputFeedValue: value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "exitForm", function () {
+      _this.props.displayFeedbackForm("none", "");
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "ratingValChange", function (value) {
+      _this.setState({
+        ratingValue: value
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(FeedbackForm, [{
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          inputFeedValue = _this$state.inputFeedValue,
+          ratingValue = _this$state.ratingValue;
+      var _this$props = this.props,
+          formDisplay = _this$props.formDisplay,
+          chosenPlatform = _this$props.chosenPlatform;
+      return _react.default.createElement("div", {
+        style: {
+          display: formDisplay
+        },
+        className: "abc"
+      }, _react.default.createElement("div", {
+        style: {
+          display: formDisplay
+        },
+        className: "feedbackForm--container"
+      }, _react.default.createElement("button", {
+        onClick: this.exitForm
+      }, "X"), _react.default.createElement("h3", null, "Your feedback on ", chosenPlatform), _react.default.createElement(_InputFeed.default, {
+        onChange: this.inputFeedValChange.bind(this)
+      }), _react.default.createElement(_Rating.default, {
+        onChange: this.ratingValChange.bind(this)
+      }), _react.default.createElement(_SubmitBtn.default, {
+        exitForm: this.exitForm.bind(this),
+        chosenPlatform: chosenPlatform,
+        RatingVal: ratingValue,
+        InputFeedVal: inputFeedValue
+      })));
+    }
+  }]);
+
+  return FeedbackForm;
+}(_react.default.Component);
+
+exports.default = FeedbackForm;
+},{"react":"../node_modules/react/index.js","../Rating/Rating":"components/Rating/Rating.js","../InputFeed/InputFeed":"components/InputFeed/InputFeed.js","../SubmitBtn/SubmitBtn":"components/SubmitBtn/SubmitBtn.js","./FeedbackForm.css":"components/FeedbackForm/FeedbackForm.css"}],"components/Icon/Icon.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -26280,13 +26613,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var Icon =
 /*#__PURE__*/
@@ -26294,9 +26629,23 @@ function (_React$Component) {
   _inherits(Icon, _React$Component);
 
   function Icon() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, Icon);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Icon).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Icon)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "handleImageClick", function () {
+      _this.props.displayFeedbackForm('block', _this.props.name);
+    });
+
+    return _this;
   }
 
   _createClass(Icon, [{
@@ -26306,6 +26655,7 @@ function (_React$Component) {
       return _react.default.createElement("div", {
         className: "icon"
       }, _react.default.createElement("img", {
+        onClick: this.handleImageClick,
         src: imgSrc
       }));
     }
@@ -26364,10 +26714,12 @@ function (_React$Component) {
       var _this$props = this.props,
           display = _this$props.display,
           categoryData = _this$props.categoryData,
-          chosenCat = _this$props.chosenCat;
+          chosenCat = _this$props.chosenCat,
+          displayFeedbackForm = _this$props.displayFeedbackForm;
+      var iconsArray = [];
+      var name = "";
       var currentCategory = "";
       if (chosenCat == "Social Medias") currentCategory = "SocialMedia";else if (chosenCat == "News") currentCategory = "News";else if (chosenCat == "Search Engines") currentCategory = "SearchEngines";else currentCategory = "Static";
-      var iconsArray = [];
       if (categoryData[currentCategory]) iconsArray = categoryData[currentCategory].icons;
       return _react.default.createElement("div", {
         className: "icons--container",
@@ -26375,13 +26727,21 @@ function (_React$Component) {
           display: display
         }
       }, iconsArray != undefined && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Icon.default, {
-        imgSrc: iconsArray[0]
+        displayFeedbackForm: displayFeedbackForm,
+        name: iconsArray[0].name,
+        imgSrc: iconsArray[0].url
       }), _react.default.createElement(_Icon.default, {
-        imgSrc: iconsArray[1]
+        displayFeedbackForm: displayFeedbackForm,
+        name: iconsArray[1].name,
+        imgSrc: iconsArray[1].url
       }), _react.default.createElement(_Icon.default, {
-        imgSrc: iconsArray[2]
+        displayFeedbackForm: displayFeedbackForm,
+        name: iconsArray[2].name,
+        imgSrc: iconsArray[2].url
       }), _react.default.createElement(_Icon.default, {
-        imgSrc: iconsArray[3]
+        displayFeedbackForm: displayFeedbackForm,
+        name: iconsArray[3].name,
+        imgSrc: iconsArray[3].url
       })));
     }
   }]);
@@ -26475,9 +26835,7 @@ var _Header = _interopRequireDefault(require("./Header/Header"));
 
 var _CateButtons = _interopRequireDefault(require("./CateButtons/CateButtons"));
 
-var _InputFeed = _interopRequireDefault(require("./InputFeed/InputFeed"));
-
-var _Rating = _interopRequireDefault(require("./Rating/Rating"));
+var _FeedbackForm = _interopRequireDefault(require("./FeedbackForm/FeedbackForm"));
 
 var _Icons = _interopRequireDefault(require("./Icons/Icons"));
 
@@ -26527,22 +26885,60 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       chosenCat: "",
+      chosenPlatform: "",
+      formDisplay: "none",
       toggle: "none",
       categoryData: {
         SocialMedia: {
           name: "Social Media",
           desc: "Social media are interactive computer-mediated technologies that facilitate the creation and sharing of information, ideas, career interests and other forms of expression via virtual communities and networks.",
-          icons: ["https://www.petconnectrescue.org/wp-content/uploads/2016/10/FB-icon.png", "https://cdn.prdaily.com/wp-content/uploads/2019/01/Instagram_LendEDU_Survey.jpg", "http://clipart-library.com/img/697347.png", "https://abilitynet.org.uk/sites/abilitynet.org.uk/files/admin/alltwitter-twitter-bird-logo-white-on-blue.png"]
+          icons: [{
+            name: "Facebook",
+            url: "https://www.petconnectrescue.org/wp-content/uploads/2016/10/FB-icon.png"
+          }, {
+            name: "Instagram",
+            url: "https://cdn.prdaily.com/wp-content/uploads/2019/01/Instagram_LendEDU_Survey.jpg"
+          }, {
+            name: "Tumblr",
+            url: "http://clipart-library.com/img/697347.png"
+          }, {
+            name: "Twitter",
+            url: "https://abilitynet.org.uk/sites/abilitynet.org.uk/files/admin/alltwitter-twitter-bird-logo-white-on-blue.png"
+          }]
         },
         SearchEngines: {
           name: "Search Engines",
           desc: "A web search engine or Internet search engine is a software system that is designed to carry out web search (Internet search), which means to search the World Wide Web in a systematic way for particular information specified in a web search query.",
-          icons: ["https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg", "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Bing_logo.svg/1280px-Bing_logo.svg.png", "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/DuckDuckGo_logo.svg/1200px-DuckDuckGo_logo.svg.png", "http://wiki.com/wikilogo.jpg"]
+          icons: [{
+            name: "Google",
+            url: "https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+          }, {
+            name: "Bing",
+            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Bing_logo.svg/1280px-Bing_logo.svg.png"
+          }, {
+            name: "DuckDuckGo",
+            url: "https://upload.wikimedia.org/wikipedia/en/thumb/8/88/DuckDuckGo_logo.svg/1200px-DuckDuckGo_logo.svg.png"
+          }, {
+            name: "Wiki",
+            url: "http://wiki.com/wikilogo.jpg"
+          }]
         },
         News: {
           name: "News",
           desc: "News is information about current events. This may be provided through many different media: word of mouth, printing, postal systems, broadcasting, electronic communication, or through the testimony of observers and witnesses to events.",
-          icons: ["https://minerva.co.il/wp-content/uploads/2017/12/F150204MA9211-1024x694.jpg", "https://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1", "https://www.logodesignlove.com/wp-content/uploads/2010/06/cnn-logo-white-on-red.jpg", "https://www.livenewsmag.com/wp-content/uploads/2017/01/Al-Manar-TV.jpg"]
+          icons: [{
+            name: "Panet",
+            url: "https://minerva.co.il/wp-content/uploads/2017/12/F150204MA9211-1024x694.jpg"
+          }, {
+            name: "BBC",
+            url: "https://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1"
+          }, {
+            name: "CNN",
+            url: "https://www.logodesignlove.com/wp-content/uploads/2010/06/cnn-logo-white-on-red.jpg"
+          }, {
+            name: "Al-Manar",
+            url: "https://www.livenewsmag.com/wp-content/uploads/2017/01/Al-Manar-TV.jpg"
+          }]
         },
         Static: {
           name: "Who are we?",
@@ -26563,21 +26959,36 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "setFormToggleState",
+    value: function setFormToggleState(display, chosenPlat) {
+      this.setState({
+        formDisplay: display,
+        chosenPlatform: chosenPlat
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$state = this.state,
           categoryData = _this$state.categoryData,
           toggle = _this$state.toggle,
-          chosenCat = _this$state.chosenCat;
+          chosenCat = _this$state.chosenCat,
+          formDisplay = _this$state.formDisplay,
+          chosenPlatform = _this$state.chosenPlatform;
       return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_Data.default, {
         categoryData: categoryData,
         chosenCat: chosenCat
       }), _react.default.createElement(_CateButtons.default, {
         chosenCategory: chosenCat,
         displayIconsAndGetChosenCat: this.setToggleState.bind(this)
-      }), _react.default.createElement(_InputFeed.default, null), _react.default.createElement(_Rating.default, null), _react.default.createElement(_Icons.default, {
+      }), _react.default.createElement(_FeedbackForm.default, {
+        displayFeedbackForm: this.setFormToggleState.bind(this),
+        chosenPlatform: chosenPlatform,
+        formDisplay: formDisplay
+      }), _react.default.createElement(_Icons.default, {
         chosenCat: chosenCat,
         categoryData: categoryData,
+        displayFeedbackForm: this.setFormToggleState.bind(this),
         display: toggle
       }));
     }
@@ -26587,7 +26998,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = App;
-},{"react":"../node_modules/react/index.js","./Header/Header":"components/Header/Header.js","./CateButtons/CateButtons":"components/CateButtons/CateButtons.js","./InputFeed/InputFeed":"components/InputFeed/InputFeed.js","./Rating/Rating":"components/Rating/Rating.js","./Icons/Icons":"components/Icons/Icons.js","./Data/Data":"components/Data/Data.js","./App.css":"components/App.css"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Header/Header":"components/Header/Header.js","./CateButtons/CateButtons":"components/CateButtons/CateButtons.js","./FeedbackForm/FeedbackForm":"components/FeedbackForm/FeedbackForm.js","./Icons/Icons":"components/Icons/Icons.js","./Data/Data":"components/Data/Data.js","./App.css":"components/App.css"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -26627,7 +27038,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38203" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44291" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
