@@ -1,0 +1,37 @@
+
+.stars > div:before {
+    position: relative;
+    font: 24px/1 FontAwesome;
+    display: block;
+    content: "\f005";
+    color: #ccc;
+    background: -webkit-linear-gradient(-45deg, #d9d9d9 0%, #b3b3b3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stars {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    width: 8em;
+}
+
+.stars input {
+    position: absolute;
+    left: -999999px;
+}
+
+.stars div {
+    display: inline-block;
+    font-size: 0;
+}
+
+.stars > div:hover:before,
+.stars > div:hover ~ div:before,
+.stars > div.selected:before,
+.stars > div.selected ~ div:before {
+    color: #f0ad4e;
+    background: -webkit-linear-gradient(-45deg, #fcb551 0%, #d69a45 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
