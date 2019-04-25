@@ -26438,7 +26438,10 @@ function (_React$Component) {
       if (_this.props.InputFeedVal && _this.props.RatingVal) {
         localStorage.setItem(_this.props.chosenPlatform, "Msg:".concat(_this.props.InputFeedVal, "&Rate:").concat(_this.props.RatingVal));
         setTimeout(function () {
-          _this.props.exitForm('none');
+          _this.props.loadFunc();
+        }, 500);
+        setTimeout(function () {
+          _this.props.exitForm("none");
         }, 1000);
       } else alert("Please finish your feedback!");
     });
@@ -26554,7 +26557,8 @@ function (_React$Component) {
           ratingValue = _this$state.ratingValue;
       var _this$props = this.props,
           formDisplay = _this$props.formDisplay,
-          chosenPlatform = _this$props.chosenPlatform;
+          chosenPlatform = _this$props.chosenPlatform,
+          loadingFunc = _this$props.loadingFunc;
       return _react.default.createElement("div", {
         style: {
           display: formDisplay
@@ -26572,6 +26576,7 @@ function (_React$Component) {
       }), _react.default.createElement(_Rating.default, {
         onChange: this.ratingValChange.bind(this)
       }), _react.default.createElement(_SubmitBtn.default, {
+        loadFunc: loadingFunc,
         exitForm: this.exitForm.bind(this),
         chosenPlatform: chosenPlatform,
         RatingVal: ratingValue,
@@ -26821,7 +26826,12 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Reviews/Reviews.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Review/Review.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Review/Review.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26830,6 +26840,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
+
+require("./Review.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26851,23 +26863,152 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+var Review =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Review, _React$Component);
+
+  function Review() {
+    _classCallCheck(this, Review);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Review).apply(this, arguments));
+  }
+
+  _createClass(Review, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          Platform = _this$props.Platform,
+          Msg = _this$props.Msg,
+          Stars = _this$props.Stars;
+      return _react.default.createElement("div", {
+        className: "Reviewd-item--container"
+      }, _react.default.createElement("h3", null, "Platform: ", Platform), _react.default.createElement("p", null, "Your feedback: ", Msg), _react.default.createElement("hr", null), _react.default.createElement("p", null, "Stars: ", Stars));
+    }
+  }]);
+
+  return Review;
+}(_react.default.Component);
+
+exports.default = Review;
+},{"react":"../node_modules/react/index.js","./Review.css":"components/Review/Review.css"}],"components/Reviews/Reviews.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Review = _interopRequireDefault(require("../Review/Review"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var Reviews =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(Reviews, _React$Component);
 
   function Reviews() {
+    var _getPrototypeOf2;
+
+    var _this;
+
     _classCallCheck(this, Reviews);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Reviews).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Reviews)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      userReviews: _react.default.createElement("div", null),
+      reviewsDisplay: "none",
+      buttonToggle: "Show my current feedbacks"
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "ConvertArrayToJSX", function () {
+      if (_this.state.buttonToggle == "Hide my current feedbacks") {
+        _this.setState({
+          reviewsDisplay: "none",
+          buttonToggle: "Show my current feedbacks"
+        });
+      } else {
+        _this.props.loadingFunc();
+
+        setTimeout(function () {
+          _this.props.loadingFunc();
+
+          setTimeout(function () {
+            if (_this.props.reviews instanceof Array) {
+              var reviewsArray = [];
+
+              _this.props.reviews.map(function (reviewItem, index) {
+                reviewsArray.push(_react.default.createElement(_Review.default, {
+                  LoadFunc: _this.Load,
+                  key: index,
+                  Platform: reviewItem.Platform,
+                  Msg: reviewItem.Msg,
+                  Stars: reviewItem.Stars
+                }));
+              });
+
+              _this.setState({
+                userReviews: reviewsArray,
+                buttonToggle: "Hide my current feedbacks",
+                reviewsDisplay: "block"
+              });
+            } else {
+              _this.setState({
+                reviewsDisplay: "none",
+                buttonToggle: "Show my current feedbacks"
+              });
+            }
+          }, 0);
+        }, 0);
+      }
+    });
+
+    return _this;
   }
 
   _createClass(Reviews, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", {
-        classname: "reviews--container"
-      });
+      var _this$state = this.state,
+          userReviews = _this$state.userReviews,
+          buttonToggle = _this$state.buttonToggle,
+          reviewsDisplay = _this$state.reviewsDisplay;
+      return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("button", {
+        onClick: this.ConvertArrayToJSX
+      }, buttonToggle), _react.default.createElement("div", {
+        style: {
+          display: reviewsDisplay
+        },
+        className: "reviews--container"
+      }, userReviews));
     }
   }]);
 
@@ -26875,7 +27016,7 @@ function (_React$Component) {
 }(_react.default.Component);
 
 exports.default = Reviews;
-},{"react":"../node_modules/react/index.js"}],"components/App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../Review/Review":"components/Review/Review.js"}],"components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27000,7 +27141,27 @@ function (_React$Component) {
           name: "Who are we?",
           desc: "We are a few people of programmers who wanted to know how people feel about the big platforms, and hear from them their reviews and feebacks."
         }
+      },
+      reviews: "s"
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "Load", function () {
+      var values = [],
+          keys = Object.keys(localStorage),
+          i = keys.length;
+      var Obj = [];
+
+      while (i--) {
+        Obj.push({
+          Msg: localStorage.getItem(keys[i]).split("&")[0].split("Msg:")[1],
+          Stars: localStorage.getItem(keys[i]).split("&")[1].split("Rate:")[1],
+          Platform: keys[i]
+        });
       }
+
+      _this.setState({
+        reviews: Obj
+      });
     });
 
     return _this;
@@ -27030,7 +27191,8 @@ function (_React$Component) {
           toggle = _this$state.toggle,
           chosenCat = _this$state.chosenCat,
           formDisplay = _this$state.formDisplay,
-          chosenPlatform = _this$state.chosenPlatform;
+          chosenPlatform = _this$state.chosenPlatform,
+          reviews = _this$state.reviews;
       return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement(_Header.default, null), _react.default.createElement(_Data.default, {
         categoryData: categoryData,
         chosenCat: chosenCat
@@ -27038,6 +27200,7 @@ function (_React$Component) {
         chosenCategory: chosenCat,
         displayIconsAndGetChosenCat: this.setToggleState.bind(this)
       }), _react.default.createElement(_FeedbackForm.default, {
+        loadingFunc: this.Load.bind(this),
         displayFeedbackForm: this.setFormToggleState.bind(this),
         chosenPlatform: chosenPlatform,
         formDisplay: formDisplay
@@ -27046,7 +27209,10 @@ function (_React$Component) {
         categoryData: categoryData,
         displayFeedbackForm: this.setFormToggleState.bind(this),
         display: toggle
-      }), _react.default.createElement(_Reviews.default, null));
+      }), _react.default.createElement(_Reviews.default, {
+        loadingFunc: this.Load.bind(this),
+        reviews: reviews
+      }));
     }
   }]);
 
@@ -27094,7 +27260,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41095" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43629" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -436,5 +436,16 @@ textarea {
   grid-gap: 2.5%;
 }
 
+.Reviewd-item--container {
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  box-sizing: border-box;
+  border: 1px black solid;
+  margin-top: 15px;
+  padding: 15px;
+  box-shadow: 1px black;
+}
+
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */
