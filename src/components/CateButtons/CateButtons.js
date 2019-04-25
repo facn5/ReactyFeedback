@@ -47,6 +47,7 @@ export default class CateButtons extends React.Component {
         <CateButton resetColorFunc={this.resetOtherButtonsBgColor} display={socialMediaBg} displayIconsAndGetChosenCat={displayIconsAndGetChosenCat} name="Social Medias" />
         <CateButton resetColorFunc={this.resetOtherButtonsBgColor} display={newsBg} displayIconsAndGetChosenCat={displayIconsAndGetChosenCat} name="News" />
         <CateButton resetColorFunc={this.resetOtherButtonsBgColor} display={searchEngineBg} displayIconsAndGetChosenCat={displayIconsAndGetChosenCat} name="Search Engines" />
+
       </div>
     );
   }

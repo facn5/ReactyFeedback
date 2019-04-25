@@ -9,6 +9,7 @@ export default class CateButton extends React.Component {
     setTimeout(() => {
       this.props.resetColorFunc();
     }, 0);
+
   };
 
   render() {
