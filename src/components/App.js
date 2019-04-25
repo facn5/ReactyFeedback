@@ -5,6 +5,7 @@ import FeedbackForm from "./FeedbackForm/FeedbackForm";
 import Icons from "./Icons/Icons";
 import Data from "./Data/Data";
 import "./App.css";
+import Reviews from "./Reviews/Reviews"
 
 export default class App extends React.Component {
   state = {
@@ -130,6 +131,7 @@ export default class App extends React.Component {
           displayFeedbackForm={this.setFormToggleState.bind(this)}
           display={toggle}
         />
+          <Reviews />
       </React.Fragment>
     );
   }
