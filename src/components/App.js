@@ -6,6 +6,7 @@ import Rating from "./Rating/Rating";
 import Icons from "./Icons/Icons";
 import Data from "./Data/Data";
 import "./App.css";
+import Reviews from "./Reviews/Reviews"
 
 export default class App extends React.Component {
 
@@ -74,6 +75,7 @@ export default class App extends React.Component {
         <InputFeed />
         <Rating />
         <Icons chosenCat={chosenCat} categoryData={categoryData} display={toggle} />
+        <Reviews />
       </React.Fragment>
     );
   }
