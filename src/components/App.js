@@ -98,8 +98,36 @@ export default class App extends React.Component {
         desc:
           "We are a few people of programmers who wanted to know how people feel about the big platforms, and hear from them their reviews and feebacks."
       }
-    }
-  };
+    },
+      reviews: "s"
+    };
+
+    Load = () => {
+      var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+      let Obj = [];
+
+      while (i--) {
+        Obj.push({
+          Msg: localStorage
+            .getItem(keys[i])
+            .split("&")[0]
+            .split("Msg:")[1],
+          Stars: localStorage
+            .getItem(keys[i])
+            .split("&")[1]
+            .split("Rate:")[1],
+          Platform: keys[i]
+        });
+      }
+
+      this.setState({
+        reviews: Obj
+      });
+    };
+
 
   setToggleState(display, chosenCategory) {
     this.setState({ toggle: display, chosenCat: chosenCategory });
@@ -112,7 +140,7 @@ export default class App extends React.Component {
 
 
   render() {
-    const { categoryData, toggle, chosenCat, formDisplay, chosenPlatform } = this.state;
+    const { categoryData, toggle, chosenCat, formDisplay, chosenPlatform, reviews } = this.state;
 
     return (
       <React.Fragment>
@@ -124,14 +152,14 @@ export default class App extends React.Component {
           displayIconsAndGetChosenCat={this.setToggleState.bind(this)}
         />
 
-      <FeedbackForm displayFeedbackForm={this.setFormToggleState.bind(this)} chosenPlatform={chosenPlatform} formDisplay={formDisplay} />
+      <FeedbackForm loadingFunc={this.Load.bind(this)} displayFeedbackForm={this.setFormToggleState.bind(this)} chosenPlatform={chosenPlatform} formDisplay={formDisplay} />
         <Icons
           chosenCat={chosenCat}
           categoryData={categoryData}
           displayFeedbackForm={this.setFormToggleState.bind(this)}
           display={toggle}
         />
-          <Reviews />
+      <Reviews loadingFunc={this.Load.bind(this)} reviews={reviews} />
       </React.Fragment>
     );
   }
