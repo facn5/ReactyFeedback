@@ -9,9 +9,11 @@ export default class SubmitBtn extends React.Component {
       );
 
       setTimeout(() => {
-        this.props.exitForm('none');
+        this.props.loadFunc();
+      }, 500);
+      setTimeout(() => {
+        this.props.exitForm("none");
       }, 1000);
-
     } else alert("Please finish your feedback!");
   };
   render() {
