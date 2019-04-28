@@ -26770,7 +26770,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Review = function Review(props) {
   return _react.default.createElement("div", {
     className: "Reviewd-item--container"
-  }, _react.default.createElement("h3", null, "Platform: ", props.Platform), _react.default.createElement("p", null, "Your feedback: ", props.Msg), _react.default.createElement("hr", null), _react.default.createElement("p", null, "Stars: ", rops.Stars));
+  }, _react.default.createElement("h3", null, "Platform: ", props.Platform), _react.default.createElement("p", null, "Your feedback: ", props.Msg), _react.default.createElement("hr", null), _react.default.createElement("p", null, "Stars: ", props.Stars));
 };
 
 var _default = Review;

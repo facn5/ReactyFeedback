@@ -6,7 +6,7 @@ const Review = props => (
     <h3>Platform: {props.Platform}</h3>
     <p>Your feedback: {props.Msg}</p>
     <hr />
-    <p>Stars: {rops.Stars}</p>
+    <p>Stars: {props.Stars}</p>
   </div>
 );
 
