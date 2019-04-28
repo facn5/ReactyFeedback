@@ -25,7 +25,7 @@ export default class FeedbackForm extends React.Component {
 
   render() {
     const { inputFeedValue, ratingValue } = this.state;
-    const { formDisplay, chosenPlatform, loadingFunc } = this.props;
+    const { formDisplay, chosenPlatform } = this.props;
 
     return (
       <div style={{ display: formDisplay }} className="abc">
@@ -37,7 +37,7 @@ export default class FeedbackForm extends React.Component {
           <h3>Your feedback on {chosenPlatform}</h3>
           <InputFeed onChange={this.inputFeedValChange} />
           <Rating onChange={this.ratingValChange} />
-          <SubmitBtn loadFunc={loadingFunc} exitForm={this.exitForm} chosenPlatform={chosenPlatform} RatingVal={ratingValue} InputFeedVal={inputFeedValue} />
+          <SubmitBtn exitForm={this.exitForm} chosenPlatform={chosenPlatform} RatingVal={ratingValue} InputFeedVal={inputFeedValue} />
         </div>
       </div>
     );
