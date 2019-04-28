@@ -103,7 +103,7 @@ export default class App extends React.Component {
     };
 
     Load = () => {
-      var values = [],
+      let
         keys = Object.keys(localStorage),
         i = keys.length;
 
@@ -148,7 +148,7 @@ export default class App extends React.Component {
         <Data categoryData={categoryData} chosenCat={chosenCat} />
 
         <CateButtons
-          chosenCategory={chosenCat}
+
           displayIconsAndGetChosenCat={this.setToggleState}
         />
 
