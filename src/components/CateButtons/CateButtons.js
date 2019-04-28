@@ -40,7 +40,7 @@ export default class CateButtons extends React.Component {
 
 
   render() {
-    const { displayIconsAndGetChosenCat, chosenCategory } = this.props;
+    const { displayIconsAndGetChosenCat } = this.props;
     const { socialMediaBg, newsBg, searchEngineBg } = this.state;
     return (
       <div className="categories-buttons--container">
