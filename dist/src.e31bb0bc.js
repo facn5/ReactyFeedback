@@ -25945,11 +25945,9 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "buttonClick", function () {
       _this.props.displayIconsAndGetChosenCat("grid", _this.props.name);
 
-      _this.props.resetColorFunc();
-
-      setTimeout(function () {
+      _this.props.resetColorFunc(function () {
         _this.props.resetColorFunc();
-      }, 0);
+      });
     });
 
     return _this;
@@ -26039,33 +26037,31 @@ function (_React$Component) {
       searchEngineBg: "white"
     });
 
-    _defineProperty(_assertThisInitialized(_this), "resetOtherButtonsBgColor", function () {
-      if (_this.props.chosenCategory) {
-        if (_this.props.chosenCategory == "Social Medias") {
-          _this.setState({
-            newsBg: "white",
-            searchEngineBg: "white",
-            socialMediaBg: "green"
-          });
-        } else if (_this.props.chosenCategory == "News") {
-          _this.setState({
-            socialMediaBg: "white",
-            searchEngineBg: "white",
-            newsBg: "green"
-          });
-        } else if (_this.props.chosenCategory == "Search Engines") {
-          _this.setState({
-            socialMediaBg: "white",
-            newsBg: "white",
-            searchEngineBg: "green"
-          });
-        } else {
-          _this.setState({
-            searchEngineBg: "white",
-            socialMediaBg: "white",
-            newsBg: "white"
-          });
-        }
+    _defineProperty(_assertThisInitialized(_this), "resetOtherButtonsBgColor", function (cb) {
+      if (_this.props.chosenCategory == "Social Medias") {
+        _this.setState({
+          newsBg: "white",
+          searchEngineBg: "white",
+          socialMediaBg: "green"
+        }, cb);
+      } else if (_this.props.chosenCategory == "News") {
+        _this.setState({
+          socialMediaBg: "white",
+          searchEngineBg: "white",
+          newsBg: "green"
+        }, cb);
+      } else if (_this.props.chosenCategory == "Search Engines") {
+        _this.setState({
+          socialMediaBg: "white",
+          newsBg: "white",
+          searchEngineBg: "green"
+        }, cb);
+      } else {
+        _this.setState({
+          searchEngineBg: "white",
+          socialMediaBg: "white",
+          newsBg: "white"
+        }, cb);
       }
     });
 
