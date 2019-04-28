@@ -4,12 +4,9 @@ export default class CateButton extends React.Component {
   buttonClick = () => {
     this.props.displayIconsAndGetChosenCat("grid", this.props.name);
 
-    this.props.resetColorFunc();
-
-    setTimeout(() => {
+    this.props.resetColorFunc(() => {
       this.props.resetColorFunc();
-    }, 0);
-
+    });
   };
 
   render() {
