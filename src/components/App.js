@@ -152,7 +152,7 @@ export default class App extends React.Component {
           displayIconsAndGetChosenCat={this.setToggleState}
         />
 
-      <FeedbackForm loadingFunc={this.Load} displayFeedbackForm={this.setFormToggleState} chosenPlatform={chosenPlatform} formDisplay={formDisplay} />
+      <FeedbackForm displayFeedbackForm={this.setFormToggleState} chosenPlatform={chosenPlatform} formDisplay={formDisplay} />
         <Icons
           chosenCat={chosenCat}
           categoryData={categoryData}
