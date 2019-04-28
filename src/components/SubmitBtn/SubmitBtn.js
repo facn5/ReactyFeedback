@@ -8,9 +8,7 @@ export default class SubmitBtn extends React.Component {
         `Msg:${this.props.InputFeedVal}&Rate:${this.props.RatingVal}`
       );
 
-      setTimeout(() => {
-        this.props.loadFunc();
-      }, 500);
+
       setTimeout(() => {
         this.props.exitForm("none");
       }, 1000);
