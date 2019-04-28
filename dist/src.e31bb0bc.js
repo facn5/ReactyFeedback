@@ -26572,12 +26572,12 @@ function (_React$Component) {
       }, _react.default.createElement("button", {
         onClick: this.exitForm
       }, "X"), _react.default.createElement("h3", null, "Your feedback on ", chosenPlatform), _react.default.createElement(_InputFeed.default, {
-        onChange: this.inputFeedValChange.bind(this)
+        onChange: this.inputFeedValChange
       }), _react.default.createElement(_Rating.default, {
-        onChange: this.ratingValChange.bind(this)
+        onChange: this.ratingValChange
       }), _react.default.createElement(_SubmitBtn.default, {
         loadFunc: loadingFunc,
-        exitForm: this.exitForm.bind(this),
+        exitForm: this.exitForm,
         chosenPlatform: chosenPlatform,
         RatingVal: ratingValue,
         InputFeedVal: inputFeedValue
@@ -27164,26 +27164,24 @@ function (_React$Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "setToggleState", function (display, chosenCategory) {
+      _this.setState({
+        toggle: display,
+        chosenCat: chosenCategory
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setFormToggleState", function (display, chosenPlat) {
+      _this.setState({
+        formDisplay: display,
+        chosenPlatform: chosenPlat
+      });
+    });
+
     return _this;
   }
 
   _createClass(App, [{
-    key: "setToggleState",
-    value: function setToggleState(display, chosenCategory) {
-      this.setState({
-        toggle: display,
-        chosenCat: chosenCategory
-      });
-    }
-  }, {
-    key: "setFormToggleState",
-    value: function setFormToggleState(display, chosenPlat) {
-      this.setState({
-        formDisplay: display,
-        chosenPlatform: chosenPlat
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this$state = this.state,
@@ -27198,19 +27196,19 @@ function (_React$Component) {
         chosenCat: chosenCat
       }), _react.default.createElement(_CateButtons.default, {
         chosenCategory: chosenCat,
-        displayIconsAndGetChosenCat: this.setToggleState.bind(this)
+        displayIconsAndGetChosenCat: this.setToggleState
       }), _react.default.createElement(_FeedbackForm.default, {
-        loadingFunc: this.Load.bind(this),
-        displayFeedbackForm: this.setFormToggleState.bind(this),
+        loadingFunc: this.Load,
+        displayFeedbackForm: this.setFormToggleState,
         chosenPlatform: chosenPlatform,
         formDisplay: formDisplay
       }), _react.default.createElement(_Icons.default, {
         chosenCat: chosenCat,
         categoryData: categoryData,
-        displayFeedbackForm: this.setFormToggleState.bind(this),
+        displayFeedbackForm: this.setFormToggleState,
         display: toggle
       }), _react.default.createElement(_Reviews.default, {
-        loadingFunc: this.Load.bind(this),
+        loadingFunc: this.Load,
         reviews: reviews
       }));
     }
@@ -27260,7 +27258,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43629" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34267" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

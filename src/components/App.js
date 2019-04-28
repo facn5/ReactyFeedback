@@ -129,11 +129,11 @@ export default class App extends React.Component {
     };
 
 
-  setToggleState(display, chosenCategory) {
+  setToggleState = (display, chosenCategory) => {
     this.setState({ toggle: display, chosenCat: chosenCategory });
   }
 
-  setFormToggleState(display, chosenPlat) {
+  setFormToggleState = (display, chosenPlat) => {
     this.setState({ formDisplay: display, chosenPlatform:chosenPlat });
   }
 
@@ -149,17 +149,17 @@ export default class App extends React.Component {
 
         <CateButtons
           chosenCategory={chosenCat}
-          displayIconsAndGetChosenCat={this.setToggleState.bind(this)}
+          displayIconsAndGetChosenCat={this.setToggleState}
         />
 
-      <FeedbackForm loadingFunc={this.Load.bind(this)} displayFeedbackForm={this.setFormToggleState.bind(this)} chosenPlatform={chosenPlatform} formDisplay={formDisplay} />
+      <FeedbackForm loadingFunc={this.Load} displayFeedbackForm={this.setFormToggleState} chosenPlatform={chosenPlatform} formDisplay={formDisplay} />
         <Icons
           chosenCat={chosenCat}
           categoryData={categoryData}
-          displayFeedbackForm={this.setFormToggleState.bind(this)}
+          displayFeedbackForm={this.setFormToggleState}
           display={toggle}
         />
-      <Reviews loadingFunc={this.Load.bind(this)} reviews={reviews} />
+      <Reviews loadingFunc={this.Load} reviews={reviews} />
       </React.Fragment>
     );
   }

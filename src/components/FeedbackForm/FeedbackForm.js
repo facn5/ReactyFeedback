@@ -35,9 +35,9 @@ export default class FeedbackForm extends React.Component {
         >
           <button onClick={this.exitForm}>X</button>
           <h3>Your feedback on {chosenPlatform}</h3>
-          <InputFeed onChange={this.inputFeedValChange.bind(this)} />
-          <Rating onChange={this.ratingValChange.bind(this)} />
-          <SubmitBtn loadFunc={loadingFunc} exitForm={this.exitForm.bind(this)} chosenPlatform={chosenPlatform} RatingVal={ratingValue} InputFeedVal={inputFeedValue} />
+          <InputFeed onChange={this.inputFeedValChange} />
+          <Rating onChange={this.ratingValChange} />
+          <SubmitBtn loadFunc={loadingFunc} exitForm={this.exitForm} chosenPlatform={chosenPlatform} RatingVal={ratingValue} InputFeedVal={inputFeedValue} />
         </div>
       </div>
     );
