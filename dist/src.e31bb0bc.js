@@ -26404,9 +26404,6 @@ function (_React$Component) {
       if (_this.props.InputFeedVal && _this.props.RatingVal) {
         localStorage.setItem(_this.props.chosenPlatform, "Msg:".concat(_this.props.InputFeedVal, "&Rate:").concat(_this.props.RatingVal));
         setTimeout(function () {
-          _this.props.loadFunc();
-        }, 500);
-        setTimeout(function () {
           _this.props.exitForm("none");
         }, 1000);
       } else alert("Please finish your feedback!");
@@ -26523,8 +26520,7 @@ function (_React$Component) {
           ratingValue = _this$state.ratingValue;
       var _this$props = this.props,
           formDisplay = _this$props.formDisplay,
-          chosenPlatform = _this$props.chosenPlatform,
-          loadingFunc = _this$props.loadingFunc;
+          chosenPlatform = _this$props.chosenPlatform;
       return _react.default.createElement("div", {
         style: {
           display: formDisplay
@@ -26542,7 +26538,6 @@ function (_React$Component) {
       }), _react.default.createElement(_Rating.default, {
         onChange: this.ratingValChange
       }), _react.default.createElement(_SubmitBtn.default, {
-        loadFunc: loadingFunc,
         exitForm: this.exitForm,
         chosenPlatform: chosenPlatform,
         RatingVal: ratingValue,
@@ -27091,7 +27086,6 @@ function (_React$Component) {
         chosenCategory: chosenCat,
         displayIconsAndGetChosenCat: this.setToggleState
       }), _react.default.createElement(_FeedbackForm.default, {
-        loadingFunc: this.Load,
         displayFeedbackForm: this.setFormToggleState,
         chosenPlatform: chosenPlatform,
         formDisplay: formDisplay
