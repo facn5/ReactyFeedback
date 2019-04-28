@@ -26572,12 +26572,12 @@ function (_React$Component) {
       }, _react.default.createElement("button", {
         onClick: this.exitForm
       }, "X"), _react.default.createElement("h3", null, "Your feedback on ", chosenPlatform), _react.default.createElement(_InputFeed.default, {
-        onChange: this.inputFeedValChange.bind(this)
+        onChange: this.inputFeedValChange
       }), _react.default.createElement(_Rating.default, {
-        onChange: this.ratingValChange.bind(this)
+        onChange: this.ratingValChange
       }), _react.default.createElement(_SubmitBtn.default, {
         loadFunc: loadingFunc,
-        exitForm: this.exitForm.bind(this),
+        exitForm: this.exitForm,
         chosenPlatform: chosenPlatform,
         RatingVal: ratingValue,
         InputFeedVal: inputFeedValue
@@ -27260,7 +27260,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43629" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34267" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
